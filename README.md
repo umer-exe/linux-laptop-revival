@@ -1,58 +1,45 @@
-# Linux Laptop Revival 💻
+# Linux Laptop Revival 🐧
 
-Reviving an aging Lenovo G50 (machine type **80E3**) as a responsive Linux laptop for browsing, writing, lightweight coding, and occasional container-based development.
+Reviving a **Lenovo G50-45 (80E3)** with Linux Mint 22.3 Xfce for responsive browsing, writing, and occasional lightweight coding.
 
-> **Current stage:** Linux Mint 22.3 Xfce boots from USB. Wi-Fi networks are not appearing in the live session; chipset/driver diagnosis is next. **Linux has not yet been installed to the SSD.**
-
-## Why this project?
-
-Windows felt sluggish despite an SSD and RAM upgrade. The goal is a simple, reliable, lightweight system—not a benchmark machine. Heavy development stays on a separate desktop PC.
+**Current status:** Mint installed on the internal SSD, booting normally; Broadcom Wi-Fi fixed and working after reboot; first Timeshift snapshot created. **208 updates available, not yet installed.** Further setup paused for now.
 
 ## Hardware
 
 | Component | Details |
 | --- | --- |
-| Laptop | Lenovo G50 family, machine type 80E3 |
-| CPU | AMD A8-6410 APU |
-| Graphics | Integrated AMD Radeon R5 |
+| CPU / graphics | AMD A8-6410 APU / Radeon R5 |
 | RAM | 8 GB (no further upgrade planned) |
-| SSD | Lexar NS100, 256 GB |
-| Wi-Fi | Broadcom 802.11n adapter (exact chipset **not yet confirmed**) |
-| Ethernet | Realtek PCIe GBE Family Controller |
-| Boot firmware | UEFI |
-| Virtualization | SVM enabled in firmware |
-
-## Intended software
-
-- **OS:** Linux Mint 22.3 Xfce (64-bit)
-- **Browsing:** Firefox, optionally Chrome for compatibility / profile-based workflows
-- **Writing:** LibreOffice, with Microsoft 365 web apps as a fallback
-- **Development:** VS Code, Git, Codex CLI
-- **Containers:** Docker Engine + Compose, used selectively
+| SSD | Lexar NS100 256 GB |
+| Wi-Fi | Broadcom BCM43142 (`14e4:4365`) |
+| Ethernet | Realtek PCIe GBE |
+| Boot | UEFI; SVM enabled |
 
 ## Progress
 
-- [x] Gather laptop hardware specifications
-- [x] Enable SVM in firmware
-- [x] Download Mint Xfce ISO and Rufus on desktop PC
-- [x] Prepare bootable USB
-- [x] Boot Linux Mint live session in UEFI mode
-- [ ] Identify and fix Broadcom Wi-Fi problem
-- [ ] Verify sound, touchpad, brightness, suspend, and graphics
-- [ ] Install Mint to internal SSD (clean install)
-- [ ] Install updates and recommended drivers
-- [ ] Configure browser, editor, Git, Codex CLI, and Docker
-- [ ] Measure responsiveness and tune only if necessary
+- [x] Create installation USB; boot Mint live session
+- [x] Install Linux Mint 22.3 Xfce to SSD
+- [x] Boot successfully from SSD
+- [x] Verify sound, keyboard, display, brightness and touchpad
+- [x] Confirm tap-to-click works after installation
+- [x] Install Broadcom STA driver offline; verify Wi-Fi persists after reboot
+- [x] Create first Timeshift snapshot
+- [ ] Apply 208 available updates and verify Wi-Fi afterward
+- [ ] Set up preferred browser and writing applications
+- [ ] Configure Git, VS Code, Codex CLI, optional Docker Engine
+- [ ] Test suspend/resume and evaluate performance
+
+## Notes
+
+First installation attempt crashed, possibly due to an unreliable laptop USB port; a subsequent attempt completed successfully. No storage hardware failure was established.
+
+The laptop is intended for browsing, typing and modest development; heavy workloads run on a separate desktop.
 
 ## Documentation
 
-- [Hardware inventory](hardware/specifications.md)
+- [Hardware](hardware/specifications.md)
 - [Installation log](logs/installation-log.md)
-- [Broadcom Wi-Fi troubleshooting](troubleshooting/wifi-broadcom.md)
-- [Development environment plan](setup/development-environment.md)
+- [Broadcom Wi-Fi fix](troubleshooting/wifi-broadcom.md)
+- [Development setup plan](setup/development-environment.md)
 
-## Scope and cautions
-
-This documents one specific machine. Driver commands should be chosen **after identifying the hardware PCI ID**. Don't blindly install proprietary Broadcom drivers. A clean installation will erase the laptop's existing Windows files; confirm the target disk before doing so.
-
-Avoid committing passwords, tokens, personal documents, MAC addresses, or raw logs that include identifying information.
+Avoid sharing credentials, tokens, sensitive logs or other private identifiers.
