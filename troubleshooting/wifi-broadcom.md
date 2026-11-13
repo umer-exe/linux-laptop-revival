@@ -1,29 +1,16 @@
-# Broadcom Wi-Fi not detected / no networks appear
+# Broadcom Wi-Fi troubleshooting
 
-**Status: investigating. No fix confirmed.**
+**Status:** Wi-Fi networks don't appear in the Mint 22.3 Xfce live session. Fix not yet tested.
 
-## Symptoms
-On the Linux Mint 22.3 Xfce live USB session, nearby Wi-Fi networks do not appear.
+**Adapter:** Broadcom BCM43142, PCI ID `14e4:4365` (rev 01); Lenovo subsystem `17aa:0621`. IDs transcribed manually.
 
-Windows reported a **Broadcom 802.11n Network Adapter**, but this generic name does not establish the Linux driver required.
+**Likely driver:** Broadcom STA (`wl` / `bcmwl-kernel-source`). May require temporary Ethernet or phone USB tethering.
 
-## Diagnose
+## Next steps
 
-Open a terminal in the live session:
+1. Check for a blocked wireless radio: `rfkill list all`
+2. Connect Ethernet or USB tethering if possible.
+3. Open **Menu → Administration → Driver Manager** and check whether a Broadcom driver is offered.
+4. Test Wi-Fi after installing the recommended driver; record the outcome here.
 
-```bash
-lspci -nnk | grep -iA3 -E 'network|wireless'
-rfkill list all
-inxi -N
-```
-
-Note the PCI vendor/device ID (for example `[14e4:xxxx]`), the `Kernel driver in use` line (if any), and any soft/hard block from `rfkill`.
-
-If the device is soft-blocked, check the network toggle / airplane mode first. If it is hard-blocked, check the laptop's wireless switch or Fn key.
-
-## Important
-
-Do **not** assume that every Broadcom adapter needs the proprietary `bcmwl-kernel-source` / `wl` driver. Driver choice depends on the PCI ID and kernel support. The live USB may require Ethernet or USB tethering to install driver packages.
-
-## Resolution
-_Not yet determined. Update after the exact chipset and driver are identified._
+Note: Driver changes made in a non-persistent live session won't normally survive reboot or carry over to the installed system.
