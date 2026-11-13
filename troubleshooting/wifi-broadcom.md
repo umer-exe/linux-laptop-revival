@@ -1,16 +1,19 @@
-# Broadcom Wi-Fi troubleshooting
+# Broadcom Wi-Fi fix — Lenovo G50-45
 
-**Status:** Wi-Fi networks don't appear in the Mint 22.3 Xfce live session. Fix not yet tested.
+**Status:** Connected successfully; persistence after reboot not yet tested.
 
-**Adapter:** Broadcom BCM43142, PCI ID `14e4:4365` (rev 01); Lenovo subsystem `17aa:0621`. IDs transcribed manually.
+- **Adapter:** Broadcom BCM43142 (`14e4:4365`)
+- **OS:** Linux Mint 22.3 Xfce; kernel `6.14.0-37-generic`
+- **Problem:** Wi-Fi networks missing after installation.
+- **Fix:** Downloaded `broadcom-sta-dkms_6.30.223.271-23ubuntu1.3_all.deb` on another PC and transferred it by USB.
 
-**Likely driver:** Broadcom STA (`wl` / `bcmwl-kernel-source`). May require temporary Ethernet or phone USB tethering.
+Installed with:
 
-## Next steps
+```bash
+sudo apt install ./broadcom-sta-dkms_*.deb
+sudo modprobe wl
+```
 
-1. Check for a blocked wireless radio: `rfkill list all`
-2. Connect Ethernet or USB tethering if possible.
-3. Open **Menu → Administration → Driver Manager** and check whether a Broadcom driver is offered.
-4. Test Wi-Fi after installing the recommended driver; record the outcome here.
+**Gotcha:** `wl` ends in lowercase letter **L**, not number **1**. Using `w1` caused “module not found”.
 
-Note: Driver changes made in a non-persistent live session won't normally survive reboot or carry over to the installed system.
+Wi-Fi then connected successfully. **Next:** Restart and confirm the driver loads automatically.
