@@ -12,7 +12,8 @@
 - Created the first Timeshift system snapshot.
 
 ## Paused / next
-- **208 updates** shown in Update Manager; **not installed yet**.
+- Installed the previously pending updates. After reboot, Wi-Fi reconnects and Firefox, touchpad and sound work.
+- Kernel reported as `7.0.0-43-generic` (verify exact output and package source; unusual for this Mint release).
 - After updates, verify Wi-Fi still works, particularly if the kernel changes.
 - Finish browser, writing apps, Git, VS Code, Codex and optional Docker setup.
 - Test suspend/resume and measure day-to-day responsiveness.
