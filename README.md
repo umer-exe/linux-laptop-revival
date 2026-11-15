@@ -12,6 +12,4 @@ The first installer attempt crashed due to intermittent USB/SSD detection, but a
 
 - [Hardware](hardware/specifications.md)
 - [Installation log](logs/installation-log.md)
-- [Broadcom Wi-Fi fix](troubleshooting/wifi-broadcom.md)
-- [Broadcom Bluetooth fix](troubleshooting/bluetooth-broadcom.md)
-
+- [Troubleshooting](troubleshooting)
