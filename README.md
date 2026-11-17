@@ -2,7 +2,7 @@
 
 Reviving a **Lenovo G50-45 (80E3)** with **Linux Mint 22.3 Xfce** for browsing, writing, and lightweight coding.
 
-**Current status:** Mint boots from the SSD; Wi-Fi and Bluetooth work after reboot and suspend/resume; system updates (`7.0.0-43-generic`), drivers, multimedia codecs, Power Manager, Timeshift and firewall setup are done. Firefox is configured. No additional apps installed from Software Manager yet.
+**Current status:** Mint boots from the 256 GB Lexar SSD alongside a 500 GB secondary HDD mounted at `/mnt/hdd` via optical bay caddy. Wi-Fi, Bluetooth, and Radeon R5 graphics stability fixes (`7.0.0-43-generic`) are in place; system updates, multimedia codecs, Power Manager, Timeshift, firewall, and Firefox configuration are complete.
 
 ## Notes
 
